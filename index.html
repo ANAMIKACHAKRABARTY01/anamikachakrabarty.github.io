@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anamika Chakrabarty • Portfolio & Résumé</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --primary: #1c4966;
+            --secondary: #17a2b8;
+            --accent: #f5a623;
+            --bg: #f9fbfd;
+            --text: #333;
+            --light-text: #555;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            background-color: var(--bg);
+            line-height: 1.6;
+        }
+        a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+        a:hover {
+            color: var(--accent);
+        }
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(28,73,102,0.95);
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        nav .logo {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: #fff;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+        nav ul li a {
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        /* Hero Section */
+        .hero {
+            padding-top: 6rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        .hero-text {
+            flex: 1 1 55%;
+            padding-right: 1rem;
+        }
+        .hero-text h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        .hero-text h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+        .hero-text p {
+            font-size: 1rem;
+            color: var(--light-text);
+            margin-bottom: 1.5rem;
+        }
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .contact-info a {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+            color: var(--primary);
+        }
+        .contact-info a i {
+            margin-right: 0.5rem;
+            color: var(--secondary);
+        }
+        .hero-img {
+            flex: 1 1 35%;
+            text-align: center;
+        }
+        .hero-img img {
+            width: 100%;
+            max-width: 320px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        /* Sections */
+        section {
+            padding: 3rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        section h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 50px;
+            height: 4px;
+            background-color: var(--accent);
+        }
+        .about-content p {
+            margin-bottom: 1rem;
+        }
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+            gap: 1.5rem;
+        }
+        .skill-item {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        .skill-item:hover {
+            transform: translateY(-4px);
+        }
+        .skill-item i {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+        .skill-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+        .skill-item p {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+        /* Timeline */
+        .timeline {
+            position: relative;
+            margin-top: 2rem;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            width: 3px;
+            height: 100%;
+            background-color: var(--secondary);
+        }
+        .timeline-item {
+            position: relative;
+            margin-left: 60px;
+            margin-bottom: 2rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -39px;
+            background-color: #fff;
+            border: 3px solid var(--secondary);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            top: 0.3rem;
+        }
+        .timeline-item h4 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+        .timeline-item span {
+            font-size: 0.85rem;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+        .timeline-item ul {
+            margin-top: 0.5rem;
+            padding-left: 1rem;
+        }
+        .timeline-item ul li {
+            margin-bottom: 0.5rem;
+            list-style-type: disc;
+        }
+        /* Tools & Technologies */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+            gap: 1.5rem;
+        }
+        .tool-card {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 1.2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+        }
+        .tool-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        .tool-card ul {
+            margin-left: 1rem;
+            list-style-type: circle;
+        }
+        .tool-card ul li {
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+        /* Achievements */
+        .achievements-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .achievement {
+            background-color: #fff;
+            border-left: 4px solid var(--secondary);
+            padding: 1rem;
+            flex: 1 1 280px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+        }
+        .achievement h4 {
+            margin-bottom: 0.3rem;
+            color: var(--primary);
+        }
+        .achievement span {
+            color: var(--secondary);
+            font-size: 0.85rem;
+        }
+        .achievement p {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: #fff;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        footer p {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        footer a {
+            color: var(--accent);
+            font-weight: 500;
+        }
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 2rem;
+            }
+            nav ul {
+                gap: 0.8rem;
+            }
+        }
+        @media (max-width: 576px) {
+            nav .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            nav ul {
+                margin-top: 0.5rem;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="container">
+            <div class="logo">Anamika C.</div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <div class="hero-text">
+            <h1>Anamika Chakrabarty</h1>
+            <h2>Assistant Manager – IT Platforms & Consumer Experience<br><span style="font-size:0.9rem; font-weight:400;">Hindustan Unilever (HUL)</span></h2>
+            <p>A dynamic IT professional with over 9 years of experience driving digital transformation, cybersecurity compliance and platform delivery across global brands.</p>
+            <div class="contact-info">
+                <a href="tel:+919535622139"><i class="fa fa-phone"></i>+91 95356 22139</a>
+                <a href="mailto:c.anamika96@gmail.com"><i class="fa fa-envelope"></i>c.anamika96@gmail.com</a>
+                <a href="https://www.anamikachakrabarty.com" target="_blank" rel="noopener"><i class="fa fa-globe"></i>Portfolio Site</a>
+                <a href="#"><i class="fa fa-map-marker-alt"></i>Bengaluru, Karnataka</a>
+            </div>
+        </div>
+        <div class="hero-img">
+            <img src="profile.png" alt="Portrait of Anamika Chakrabarty">
+        </div>
+    </header>
+    <!-- About Section -->
+    <section id="about">
+        <h3>About Me</h3>
+        <div class="about-content">
+            <p>I am a certified and results‑driven IT professional with <strong>9+ years of experience</strong> across Hindustan Unilever, Amazon, IBM and Accenture. My career has been built on leading high‑impact initiatives—from large‑scale <strong>digital transformation</strong> programmes and <strong>cybersecurity compliance</strong> to innovative <strong>GenAI automation</strong>. I thrive at the intersection of technology and business, managing cross‑functional teams and delivering secure, scalable platforms in cloud‑native environments.</p>
+            <p>With a foundation in Electrical Engineering from <strong>NIT Srinagar</strong>, I hold <strong>PMP</strong> and <strong>ISTQB</strong> certifications and am proficient in Agile/Scrum methodologies. My strengths lie in project and vendor management, budget optimisation, platform ownership and turning emerging technologies into tangible ROI for the business.</p>
+        </div>
+    </section>
+    <!-- Skills Section -->
+    <section id="skills">
+        <h3>Skills</h3>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <i class="fa fa-project-diagram"></i>
+                <h4>Project Management</h4>
+                <p>PMP certified, adept at Agile/Scrum delivery, full lifecycle ownership & budget control.</p>
+            </div>
+            <div class="skill-item">
+                <i class="fa fa-shield-alt"></i>
+                <h4>Cybersecurity & Compliance</h4>
+                <p>Expert in ISO27001, NIST, GDPR; risk assessments, audit readiness & cloud security.</p>
+            </div>
+            <div class="skill-item">
+                <i class="fa fa-code"></i>
+                <h4>Software & Testing</h4>
+                <p>Salesforce & Veeva CRM testing, test automation, UAT/OQ/regression execution.</p>
+            </div>
+            <div class="skill-item">
+                <i class="fa fa-users-cog"></i>
+                <h4>Vendor & Stakeholder Management</h4>
+                <p>Governance across multiple vendors, contract negotiation and stakeholder reporting.</p>
+            </div>
+            <div class="skill-item">
+                <i class="fa fa-robot"></i>
+                <h4>GenAI & Automation</h4>
+                <p>Led GenAI PoC delivering $256K ROI; passionate about AI‑driven process enhancement.</p>
+            </div>
+            <div class="skill-item">
+                <i class="fa fa-chart-line"></i>
+                <h4>Data & Analytics</h4>
+                <p>Experienced with ESB analytics, Excel macros, dashboards and master data strategies.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Experience Section -->
+    <section id="experience">
+        <h3>Experience</h3>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h4>Assistant Manager – IT Platforms & Consumer Experience</h4>
+                <span>Hindustan Unilever • Apr 2022 – Present</span>
+                <ul>
+                    <li>Own and manage a ₹28 Cr IT budget for marketing & call centre transformation, ensuring cybersecurity, privacy and operational readiness.</li>
+                    <li>Drive GenAI PoC to automate artwork/label generation for FMCG brands, targeting over $256K ROI.</li>
+                    <li>Lead Salesforce applications (AdManager, SWOP) across their lifecycle—access model, MFA implementation and BAU governance.</li>
+                    <li>Manage five enterprise chatbots supporting marketing, artwork and internal operations; oversee roadmap and SLA compliance.</li>
+                    <li>Serve as a cybersecurity & compliance SME: close OS/app/cloud vulnerabilities, conduct ISA & privacy risk assessments and enforce UAM reviews.</li>
+                    <li>Oversee vendor governance with Accenture, HCL, Capgemini, EY & others; handle contracts, renewals and license compliance.</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <h4>Test Lead</h4>
+                <span>IBM India Pvt. Ltd • Feb 2022 – Apr 2022</span>
+                <ul>
+                    <li>Led Salesforce Service Cloud testing for a major US gas utility project in an Agile environment.</li>
+                    <li>Defined test strategies, created traceability matrices and delivered UAT‑ready solutions under tight deadlines.</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <h4>Product Compliance Senior Associate</h4>
+                <span>Amazon • Sep 2020 – Feb 2022</span>
+                <ul>
+                    <li>Ensured marketplace compliance across North America, UK & India as part of the restricted products team.</li>
+                    <li>Enhanced machine‑learning accuracy by refining misclassified products and improving data labelling.</li>
+                    <li>Drafted policy rationale for sellers to drive corrective action and support compliance automation.</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <h4>Senior Engineer</h4>
+                <span>Accenture • Mar 2017 – Sep 2020</span>
+                <ul>
+                    <li>Performed Salesforce Lightning & Veeva CRM testing in GxP‑regulated environments for a global pharma leader.</li>
+                    <li>Led functional, OQ, UAT and regression validations for clinical trial & statistical analysis applications.</li>
+                    <li>Executed CSV deliverables across the SDLC and ensured 21 CFR Part 11 compliance.</li>
+                    <li>Mentored junior testers and drove process improvements in Agile Scrum setups.</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <h4>Graduate Engineer Trainee</h4>
+                <span>Bluestar India Pvt. Ltd • Jul 2016 – Dec 2016</span>
+                <ul>
+                    <li>Operated Fin Core Builder & Helium Leak Detector for MCHX coil production.</li>
+                    <li>Handled press brakes, copper tube bending and unit testing of storage water coolers.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- Education Section -->
+    <section id="education">
+        <h3>Education</h3>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h4>Bachelor of Technology in Electrical Engineering</h4>
+                <span>NIT Srinagar • 2012 – 2016</span>
+                <ul>
+                    <li>CGPA: 7.003 / 10</li>
+                    <li>Final year project on power system simulation using MiPower.</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <h4>AISSCE (Class XII)</h4>
+                <span>KV No.1 Udhampur • 2012</span>
+                <ul>
+                    <li>Secured 90% with a top score of 96 in Computer Science.</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <h4>AISSE (Class X)</h4>
+                <span>KV No.1 Udhampur • 2010</span>
+                <ul>
+                    <li>Scored 95% and received KVS Merit Scholarship.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- Achievements Section -->
+    <section id="achievements">
+        <h3>Achievements & Certifications</h3>
+        <div class="achievements-list">
+            <div class="achievement">
+                <h4>GenAI PoC ROI</h4>
+                <span>HUL • 2024</span>
+                <p>Delivered a GenAI proof of concept that consolidated PMD data and automated artwork generation, achieving an estimated <strong>$256K return on investment</strong>.</p>
+            </div>
+            <div class="achievement">
+                <h4>₹28 Cr IT Transformation</h4>
+                <span>HUL • 2025</span>
+                <p>Led a ₹28 Crore technology programme enabling business transformation across marketing & call centre operations with robust governance and compliance.</p>
+            </div>
+            <div class="achievement">
+                <h4>Enterprise Chatbots</h4>
+                <span>HUL • 2025</span>
+                <p>Managed and scaled <strong>five enterprise chatbots</strong> for cross‑functional teams, covering design overhaul, feature upgrades and SLA‑driven support.</p>
+            </div>
+            <div class="achievement">
+                <h4>Audit Readiness & Compliance</h4>
+                <span>Accenture • 2020</span>
+                <p>Ensured GxP‑compliant testing and audit readiness for clinical & statistical applications, adhering to 21 CFR Part 11 and stringent regulatory guidelines.</p>
+            </div>
+            <div class="achievement">
+                <h4>Project Management Professional</h4>
+                <span>PMI • 2024</span>
+                <p>PMP certified in recognition of exemplary project management and delivery capabilities.</p>
+            </div>
+            <div class="achievement">
+                <h4>ISTQB & Agile Certifications</h4>
+                <span>ASTQB & Accenture • 2019–2020</span>
+                <p>Certified ISTQB Foundation Level tester and completed Agile methodology training in Accenture.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Tools & Technologies Section -->
+    <section id="tools">
+        <h3>Tools & Technologies</h3>
+        <div class="tools-grid">
+            <div class="tool-card">
+                <h4>Enterprise Applications & Platforms</h4>
+                <ul>
+                    <li>Salesforce Lightning, Service Cloud, AdManager & SWOP</li>
+                    <li>Veeva CRM & Vault (web & iPad)</li>
+                    <li>Oracle LifeSciences Data Hub, CSDW</li>
+                    <li>SAS, UNIX, WinSCP</li>
+                </ul>
+            </div>
+            <div class="tool-card">
+                <h4>Test Management & QA Tools</h4>
+                <ul>
+                    <li>Worksoft Certify, Selenium (basics), EAF</li>
+                    <li>HP ALM / Quality Center, JIRA, RQM, RTC, VersionOne</li>
+                    <li>Proficient in RTM, UAT, OQ, regression & end‑to‑end testing</li>
+                </ul>
+            </div>
+            <div class="tool-card">
+                <h4>Identity, Access & Compliance</h4>
+                <ul>
+                    <li>Saviynt access workflows & ACAM implementation</li>
+                    <li>ServiceNow UAM, incident & change management</li>
+                    <li>Web Application Firewall, OS/App/Cloud vulnerability remediation</li>
+                </ul>
+            </div>
+            <div class="tool-card">
+                <h4>Data, Automation & Reporting</h4>
+                <ul>
+                    <li>Electronic Shopping Basket (ESB): analytics & portfolio insights</li>
+                    <li>GenAI tools for PMD & artwork workflows</li>
+                    <li>Advanced Microsoft Excel: dashboards, pivot tables & macros</li>
+                    <li>Microsoft PowerPoint, Word, Outlook & Teams</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- Beyond Work Section -->
+    <section id="beyond">
+        <h3>Beyond Work</h3>
+        <p>Outside the realm of IT and business transformation, I actively pursue creative and community‑driven initiatives:</p>
+        <ul style="margin-left:1.5rem; list-style-type:circle;">
+            <li>Completed a <strong>Diploma in Nutrition & Health Education</strong> (IGNOU) and provide voluntary wellness consultations to promote health awareness among peers.</li>
+            <li>Co‑founded and scaled the art community <strong>Art Chitrakala</strong> (31K+ Instagram followers), overseeing content strategy, branding and engagement.</li>
+            <li>Developed and host my personal digital portfolio using <strong>GitHub Pages</strong> to share my journey, projects and passion projects.</li>
+            <li>Continuously upskill in <strong>GenAI, Cybersecurity and Salesforce</strong> through online platforms and global tech communities.</li>
+        </ul>
+    </section>
+    <!-- College & School Highlights -->
+    <section id="highlights">
+        <h3>College & School Highlights</h3>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h4>MiPower Project – PRDC</h4>
+                <span>NIT Srinagar • 2015–2016</span>
+                <ul>
+                    <li>Simulated power system operations using MiPower software to analyse steady‑state, stability and security aspects.</li>
+                    <li>Conducted studies on active/reactive power distribution and system reliability across bus systems.</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <h4>Industrial Trainee</h4>
+                <span>Indian Oil Corporation Limited, Vadodara • Dec 2014 – Jan 2015</span>
+                <ul>
+                    <li>Completed 45‑day training at IOCL’s refinery, gaining exposure to industrial processes and compliance.</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <h4>Workshops & Certifications</h4>
+                <span>2012–2016</span>
+                <ul>
+                    <li>Attended workshops on PLC SCADA, Robotics, Wireless Sensor Networks & Ethical Hacking.</li>
+                    <li>Participated in INSPIRE Science Camp (DST) and completed a Diploma in Nutrition & Health Education.</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <h4>College Achievements</h4>
+                <span>NIT Srinagar • 2012–2016</span>
+                <ul>
+                    <li>Qualified AIEEE 2012 with AIR 59,710 & State Rank 177 (J&K).</li>
+                    <li>Topper in Computer Science with 96/100; active in debates, quizzes and media teams.</li>
+                    <li>Ranked 18th in CSR Essay Contest; organised workshops and cultural events.</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <h4>School Achievements</h4>
+                <span>KV Udhampur • 2008–2011</span>
+                <ul>
+                    <li>Recipient of KVS Merit Scholarship and AFWWA Silver Jubilee Certificate for academic excellence.</li>
+                    <li>Qualified Junior Maths Olympiad with AIR 38 & State Rank 6 (J&K).</li>
+                    <li>Won debate competitions at cluster & regional levels and received scholarships for merit.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact">
+        <h3>Get in Touch</h3>
+        <p>If you’d like to discuss potential collaborations, digital transformation initiatives or just want to say hello, feel free to reach out!</p>
+        <div class="contact-info">
+            <a href="tel:+919535622139"><i class="fa fa-phone"></i>+91 95356 22139</a>
+            <a href="mailto:c.anamika96@gmail.com"><i class="fa fa-envelope"></i>c.anamika96@gmail.com</a>
+            <a href="https://www.linkedin.com/in/anamikachakrabarty" target="_blank" rel="noopener"><i class="fa fa-linkedin"></i>LinkedIn</a>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Anamika Chakrabarty. All rights reserved.</p>
+        <p>Designed & built with passion and technology.</p>
+    </footer>
+</body>
+</html>
